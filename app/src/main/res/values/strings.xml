@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DemoAndroid</string>
+    <string name="title_main_activity">Hello</string>
+    <string name="linear_title">Ceci est mon activité Linear</string>
+    <string name="hint_et_linear">Mon nom</string>
+    <string name="btn_get_input_linear">Get input !</string>
+</resources>
