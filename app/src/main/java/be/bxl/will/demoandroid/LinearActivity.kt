@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import be.bxl.will.demoandroid.models.Media
 
 class LinearActivity : AppCompatActivity() {
 
@@ -27,9 +28,10 @@ class LinearActivity : AppCompatActivity() {
         initView()
         setupButton()
         tvTitle.text = "Mon nouveau titre !"
+
+        val myMediaFromIntent = intent.getSerializableExtra(MainActivity.MEDIA_CODE) as Media
+        Log.d(TAG, myMediaFromIntent.toString())
     }
-
-
 
     private fun initView() {
         tvTitle = findViewById(R.id.tv_title_linear)
@@ -41,9 +43,39 @@ class LinearActivity : AppCompatActivity() {
         btnGetInput.setOnClickListener {
             Log.d(TAG, "Click")
             val myText = etName.text.toString()
+            // Pour changer valeur d'un edit text
             // etName.setText("nigfdngiuf")
             Log.d(TAG, myText)
             Toast.makeText(this, "J'ai faim $myText", Toast.LENGTH_LONG).show()
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d(TAG, "onStart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d(TAG, "onResume")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG, "onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d(TAG, "onStop")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(TAG, "onDestroy")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
     }
 }

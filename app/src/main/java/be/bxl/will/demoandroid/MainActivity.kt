@@ -1,14 +1,20 @@
 package be.bxl.will.demoandroid
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
+import be.bxl.will.demoandroid.models.Media
 
 class MainActivity : AppCompatActivity() {
 
     companion object {
         val TAG = MainActivity::class.java.simpleName
+        val MEDIA_CODE = "media"
     }
+
+    private lateinit var btnGoToLinear : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,6 +22,18 @@ class MainActivity : AppCompatActivity() {
 
         val title = getString(R.string.title_main_activity)
         Log.d(TAG, title)
+
+        btnGoToLinear = findViewById(R.id.btn_go_to_linear_main)
+
+        btnGoToLinear.setOnClickListener {
+            val intent = Intent(this, LinearActivity::class.java)
+            val newMedia = Media("Movie", "Harry Potter", "C'est un sorcier",
+                123456, 1)
+            intent.putExtra(MEDIA_CODE, newMedia)
+            startActivity(intent)
+            // Pour finish l'activité
+            // finish()
+        }
     }
 
     override fun onStart() {
@@ -45,5 +63,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onRestart() {
         super.onRestart()
+        Log.d(TAG, "onRestart")
     }
 }
