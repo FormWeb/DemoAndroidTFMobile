@@ -12,8 +12,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Go to linear activity"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btn_dont_click_main"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <Button
+        android:id="@+id/btn_dont_click_main"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Don't click"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btn_go_to_linear_main"
+        app:layout_constraintStart_toStartOf="@+id/btn_go_to_linear_main"
+        app:layout_constraintTop_toBottomOf="@+id/btn_go_to_linear_main" />
+
+    <Button
+        android:id="@+id/btn_go_to_media_list"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Go to media list"
+        app:layout_constraintEnd_toEndOf="@+id/btn_dont_click_main"
+        app:layout_constraintStart_toStartOf="@+id/btn_dont_click_main"
+        app:layout_constraintTop_toBottomOf="@+id/btn_dont_click_main" />
 </androidx.constraintlayout.widget.ConstraintLayout>
