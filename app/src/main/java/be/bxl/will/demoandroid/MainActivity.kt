@@ -67,6 +67,21 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, MediaListActivity::class.java)
             startActivity(intent)
         }
+
+        manageSharedPreference()
+    }
+
+    private fun manageSharedPreference() {
+        val sharedPref = getSharedPreferences("my_shared_pref", MODE_PRIVATE)
+        // Equivalent sans with
+//        val editor = sharedPref.edit()
+//        editor.putString("myKey", "myValue")
+//        editor.apply()
+
+        with (sharedPref.edit()) {
+            putString("myKey", "myValue")
+            apply()
+        }
     }
 
     override fun onStart() {
